@@ -1,6 +1,5 @@
-//缺点 - 可能会造成内存空间的大量浪费
-public class Array_List<E> extends AbstractList<E> {//<>= 范型, 就是可以是所有类
-    //in java 所有类 都extend object
+
+public class Array_List<E> {
     private int size;
 
     private E[] elements;
@@ -9,7 +8,6 @@ public class Array_List<E> extends AbstractList<E> {//<>= 范型, 就是可以�
     public Array_List(int capacity) {
         capacity = (capacity < DEFAULT_CAPACITY) ? DEFAULT_CAPACITY : capacity;
         elements =  (E[])new Object[capacity];
-        //E[] == int[], new Object 是可以放所有类
     }
 
     public Array_List() {
@@ -57,7 +55,7 @@ public class Array_List<E> extends AbstractList<E> {//<>= 范型, 就是可以�
 
     public void clear() {
         for(int i = 0; i < size; i++){
-            elements[i] = null; //数组里面都是没有指针
+            elements[i] = null;
 
         }
         size = 0;
@@ -102,14 +100,6 @@ public class Array_List<E> extends AbstractList<E> {//<>= 范型, 就是可以�
             }
             string.append(",");
             return string.toString();
-            /*
-            if (i == size - 1) {
-                combine = combine + elements[i];
-            } else {
-                combine = combine + elements[i] + ",";
-            }
-        }*/
-            //this is preferred bc the last one has size - 1;
     }
     public E remove(int index) {
         E result = elements[index];
